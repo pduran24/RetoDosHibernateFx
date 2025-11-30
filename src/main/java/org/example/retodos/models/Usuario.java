@@ -26,12 +26,17 @@ public class Usuario {
     @Column(name = "contrasenia", nullable = false)
     private String contrasenia;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "rol", nullable = false)
+    private Rol rol = Rol.USER;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @ToString.Exclude
     private List<Copia> copias = new ArrayList<>();
 
-    public Usuario(String nombreUsuario, String contrasenia) {
+    public Usuario(String nombreUsuario, String contrasenia, Rol rol) {
         this.nombreUsuario = nombreUsuario;
         this.contrasenia = contrasenia;
+        this.rol = rol;
     }
 }

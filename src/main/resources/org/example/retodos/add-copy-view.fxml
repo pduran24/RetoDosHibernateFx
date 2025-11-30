@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retodos.controller.AddCopyController">
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+
+    <Label text="Añadir Nueva Copia">
+        <font>
+            <Font name="System Bold" size="18.0" />
+        </font>
+    </Label>
+
+    <VBox alignment="CENTER_LEFT" spacing="5.0">
+        <Label text="Selecciona la Película:" />
+        <ComboBox fx:id="comboPelicula" prefWidth="250.0" promptText="Elige una película..." />
+    </VBox>
+
+    <VBox alignment="CENTER_LEFT" spacing="5.0">
+        <Label text="Estado de la copia:" />
+        <ComboBox fx:id="comboEstado" prefWidth="250.0" promptText="Ej: Bueno, Dañado..." />
+    </VBox>
+
+    <VBox alignment="CENTER_LEFT" spacing="5.0">
+        <Label text="Tipo de Soporte:" />
+        <ComboBox fx:id="comboSoporte" prefWidth="250.0" promptText="Ej: DVD, Blu-ray..." />
+    </VBox>
+
+    <HBox alignment="CENTER" spacing="15.0" style="-fx-padding: 10 0 0 0;">
+        <Button fx:id="btnCancelar" style="-fx-background-color: #ffcccc;" text="Cancelar" />
+        <Button fx:id="btnGuardar" defaultButton="true" style="-fx-background-color: #b6e7c9;" text="Guardar Copia" />
+    </HBox>
+</VBox>

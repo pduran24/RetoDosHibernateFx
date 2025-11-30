@@ -16,6 +16,7 @@ public class CopiaRepository extends HibernateRepository<Copia> {
          try (Session session = HibernateUtil.getSessionFactory().openSession()) {
              String consulta = "FROM Copia c JOIN FETCH c.pelicula WHERE c.usuario.id = :idUsuario";
              Query<Copia> query = session.createQuery(consulta, Copia.class);
+             query.setParameter("idUsuario", idUsuario);
              return query.list();
          }
     }

@@ -16,6 +16,8 @@ public class UsuarioRepository extends HibernateRepository<Usuario> {
             Query<Usuario> query = session.createQuery(
                     consulta, Usuario.class
             );
+            query.setParameter("usuario", usuario);
+            query.setParameter("contrasenia", contrasenia);
             return query.uniqueResult();
         }
     }
