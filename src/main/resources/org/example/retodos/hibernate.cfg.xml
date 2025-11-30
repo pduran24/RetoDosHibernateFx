@@ -20,5 +20,8 @@
         <property name="format_sql">true</property>
         <property name="current_session_context_class">thread</property>
 
+        <mapping class="org.example.retodos.models.Usuario"/>
+        <mapping class="org.example.retodos.models.Pelicula"/>
+        <mapping class="org.example.retodos.models.Copia"/>
     </session-factory>
 </hibernate-configuration>
