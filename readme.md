@@ -21,12 +21,12 @@ la base de datos, para mantener actualizada la disponibilidad de
 las copias. No se debe permitir eliminar la película completa, solo
 una copia específica.
 * Como usuario, quiero poder añadir una nueva copia de una
-* película que ya existe en la base de datos, para reflejar
-* correctamente mi colección.
+película que ya existe en la base de datos, para reflejar
+correctamente mi colección.
 * Como usuario administrador, quiero poder añadir una nueva
-* película a la base de datos, para que esté disponible para otros
-* usuarios de la aplicación, facilitando así el crecimiento del
-* catálogo.
+película a la base de datos, para que esté disponible para otros
+usuarios de la aplicación, facilitando así el crecimiento del
+catálogo.
 * Como usuario, quiero poder modificar los datos de una copia
-* (estado, cantidad), para mantener actualizada mi colección en la
-* base de datos.
+(estado, cantidad), para mantener actualizada mi colección en la
+base de datos.
