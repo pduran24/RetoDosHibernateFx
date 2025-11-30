@@ -4,17 +4,19 @@
 Pantalla de Login: Permitir a los usuarios iniciar sesión con un nombre
 de usuario y contraseña.
 * Visualizar Copias de Películas: Una vez que el usuario inicie sesión,
-* mostrar un listado de copias de películas asociadas a ese usuario. Un
-* usuario no puede ver las copias de películas del resto de usuarios.
+mostrar un listado de copias de películas asociadas a ese usuario. Un
+usuario no puede ver las copias de películas del resto de usuarios.
 * Permitir Múltiples Copias: Un usuario puede tener varias copias de la
-* misma película. Cada copia debe ser visible en el listado.
+misma película. Cada copia debe ser visible en el listado.
 * La base de datos de las películas es común para todos los usuarios (no
-* las copias).
-* Al pulsar sobre una copia, se muestra una pantalla con el detalle de la
-* copia y película asociada.
-Además de esa funcionalidad básica, necesitamos completarla con las
-siguientes historias de usuario:
-Como usuario, quiero poder eliminar una copia de una película en
+las copias).
+* Al pulsar sobre una copia, se muestra una pantalla con el detalle de la 
+copia y película asociada.
+
+
+
+Historias de Usuario Adicionales:
+* Como usuario, quiero poder eliminar una copia de una película en
 la base de datos, para mantener actualizada la disponibilidad de
 las copias. No se debe permitir eliminar la película completa, solo
 una copia específica.
