@@ -14,7 +14,7 @@ public class Copia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(name = "estado", nullable = false)
     private String estado;
@@ -37,4 +37,5 @@ public class Copia {
         this.pelicula = pelicula;
         this.usuario = usuario;
     }
+
 }
