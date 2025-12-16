@@ -3,11 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retodos.controller.DetailController">
+<VBox alignment="TOP_CENTER" spacing="15.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.retodos.controller.DetailController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
@@ -18,18 +17,17 @@
         </font>
     </Label>
 
-    <VBox spacing="5.0" alignment="CENTER_LEFT">
-        <Label fx:id="lblTitulo" text="Título de la Película" style="-fx-font-size: 16px; -fx-text-fill: #2a2a2a; -fx-font-weight: bold;"/>
+    <VBox alignment="CENTER_LEFT" spacing="5.0">
+        <Label fx:id="lblTitulo" style="-fx-font-size: 16px; -fx-text-fill: #2a2a2a; -fx-font-weight: bold;" text="Título de la Película" />
 
         <Label fx:id="lblDirector" text="Director: Christopher Nolan" />
         <Label fx:id="lblGenero" text="Género: Sci-Fi" />
         <Label fx:id="lblAnio" text="Año: 2010" />
     </VBox>
 
-    <VBox spacing="5.0" alignment="CENTER_LEFT">
-        <Label text="Sinopsis:" style="-fx-font-weight: bold;"/>
-        <TextArea fx:id="txtDescripcion" editable="false" wrapText="true" prefHeight="100.0" prefWidth="300.0" style="-fx-background-color: transparent;"/>
+    <VBox alignment="CENTER_LEFT" spacing="5.0">
+        <Label fx:id="lblSinopsis" text="Sinopsis:" />
     </VBox>
 
-    <Button fx:id="btnCerrar" text="Cerrar" defaultButton="true" style="-fx-base: #eee;"/>
+    <Button fx:id="btnCerrar" defaultButton="true" style="-fx-base: #eee;" text="Cerrar" />
 </VBox>

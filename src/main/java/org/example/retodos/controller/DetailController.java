@@ -17,8 +17,9 @@ public class DetailController implements Initializable {
     @FXML private Label lblDirector;
     @FXML private Label lblGenero;
     @FXML private Label lblAnio;
-    @FXML private TextArea txtDescripcion;
     @FXML private Button btnCerrar;
+    @FXML
+    private Label lblSinopsis;
 
 
     @Override
@@ -29,16 +30,15 @@ public class DetailController implements Initializable {
         });
     }
 
-
     public void setPelicula(Pelicula pelicula) {
         if (pelicula != null) {
             lblTitulo.setText(pelicula.getTitulo());
             lblDirector.setText("Director: " + pelicula.getDirector());
             lblGenero.setText("Género: " + pelicula.getGenero());
             lblAnio.setText("Año: " + pelicula.getAnio());
-            txtDescripcion.setText(pelicula.getDescripcion());
+            // --- CORRECCIÓN PROBLEMA #6: Cursor Visual ---
+            lblSinopsis.setText(("Sinopsis: " + pelicula.getDescripcion()));
+            // --- FIN CORRECCIÓN ---
         }
     }
-
-
 }
