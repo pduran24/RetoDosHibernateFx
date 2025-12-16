@@ -145,13 +145,33 @@ public class MainController implements Initializable {
 
     private void onEliminarCopiaClick() {
         Object seleccion = tablaPeliculas.getSelectionModel().getSelectedItem();
-        if (seleccion == null) return;
+
+        // Validación básica por si no hay nada seleccionado
+        if (seleccion == null) {
+            JavaFXUtil.showModal(Alert.AlertType.WARNING, "Aviso", "Nada seleccionado", "Por favor, selecciona una copia de la lista.");
+            return;
+        }
 
         Copia copia = (Copia) seleccion;
-        try {
-            copiaRepository.delete(copia);
-            tablaPeliculas.getItems().remove(copia);
-        } catch (Exception e) { e.printStackTrace(); }
+
+        // --- CORRECCIÓN PROBLEMA #5: Confirmación antes de borrar ---
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirmar eliminación");
+        alert.setHeaderText("¿Eliminar copia de '" + copia.getPelicula().getTitulo() + "'?");
+        alert.setContentText("¿Estás seguro de que quieres eliminar esta copia de tu colección? Esta acción no se puede deshacer.");
+
+        // Solo borramos si el usuario pulsa OK
+        if (alert.showAndWait().orElse(ButtonType.CANCEL) == ButtonType.OK) {
+            try {
+                copiaRepository.delete(copia);
+                tablaPeliculas.getItems().remove(copia);
+                // Feedback opcional de éxito
+                JavaFXUtil.showModal(Alert.AlertType.INFORMATION, "Eliminado", "Copia eliminada", "La copia ha sido eliminada correctamente.");
+            } catch (Exception e) {
+                e.printStackTrace();
+                JavaFXUtil.showModal(Alert.AlertType.ERROR, "Error", "Fallo al eliminar", "No se pudo eliminar la copia de la base de datos.");
+            }
+        }
     }
 
     private void onEliminarPeliculaClick() {
