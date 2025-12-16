@@ -38,7 +38,6 @@ public class DetailController implements Initializable {
             lblAnio.setText("Año: " + pelicula.getAnio());
             // --- CORRECCIÓN PROBLEMA #6: Cursor Visual ---
             lblSinopsis.setText(("Sinopsis: " + pelicula.getDescripcion()));
-            // --- FIN CORRECCIÓN ---
         }
     }
 }
