@@ -39,10 +39,26 @@ public class AddMovieController implements Initializable {
     }
 
     private void onGuardar() {
-        if (txtTitulo.getText().isEmpty() || txtDirector.getText().isEmpty() || txtAnio.getText().isEmpty()) {
-            JavaFXUtil.showModal(Alert.AlertType.WARNING, "Aviso", "Campos vacíos", "Título, Director y Año son obligatorios.");
-            return;
+        // --- INICIO CORRECCIÓN PROBLEMA #7: Mensajes de error específicos ---
+        java.util.List<String> camposFaltantes = new java.util.ArrayList<>();
+
+        if (txtTitulo.getText().trim().isEmpty()) {
+            camposFaltantes.add("Título");
         }
+        if (txtDirector.getText().trim().isEmpty()) {
+            camposFaltantes.add("Director");
+        }
+        if (txtAnio.getText().trim().isEmpty()) {
+            camposFaltantes.add("Año");
+        }
+
+        if (!camposFaltantes.isEmpty()) {
+            String mensaje = "Por favor, rellena los siguientes campos obligatorios:\n- "
+                    + String.join("\n- ", camposFaltantes);
+            JavaFXUtil.showModal(Alert.AlertType.WARNING, "Campos incompletos", "Faltan datos", mensaje);
+            return; // Detenemos la ejecución
+        }
+        // --- FIN CORRECCIÓN ---
 
         try {
             Pelicula p = new Pelicula();
