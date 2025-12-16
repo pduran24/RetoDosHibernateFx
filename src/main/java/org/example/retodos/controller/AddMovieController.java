@@ -36,6 +36,14 @@ public class AddMovieController implements Initializable {
         peliculaRepository = new PeliculaRepository();
         btnGuardar.setOnAction(event -> onGuardar());
         btnCancelar.setOnAction(event -> onCancelar());
+
+        // --- CORRECCIÓN PROBLEMA #2: Prevención de Texto Excesivo ---
+        limitarLongitud(txtTitulo, 30);
+        limitarLongitud(txtDirector, 15);
+        limitarLongitud(txtGenero, 10);
+        limitarLongitud(txtAnio, 4);
+        limitarLongitud(txtDescripcion, 250);
+        // --- FIN CORRECCIÓN ---
     }
 
     private void onGuardar() {
@@ -103,6 +111,16 @@ public class AddMovieController implements Initializable {
     private void onCancelar() {
         Stage stage = (Stage) btnCancelar.getScene().getWindow();
         stage.close();
+    }
+
+    // Metodo auxiliar para limitar caracteres en cualquier campo de texto
+    private void limitarLongitud(javafx.scene.control.TextInputControl campo, int maxCaracteres) {
+        campo.textProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue.length() > maxCaracteres) {
+
+                campo.setText(oldValue);
+            }
+        });
     }
 }
 
