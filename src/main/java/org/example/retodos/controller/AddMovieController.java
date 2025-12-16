@@ -51,12 +51,25 @@ public class AddMovieController implements Initializable {
             p.setDirector(txtDirector.getText());
             p.setDescripcion(txtDescripcion.getText());
 
+            // INICIO CORRECCIÓN PROBLEMA #3
             try {
-                p.setAnio(Integer.parseInt(txtAnio.getText()));
+                int anioInput = Integer.parseInt(txtAnio.getText());
+                int anioActual = java.time.Year.now().getValue();
+
+                // Validación de rango lógico (1888 - Actualidad)
+                if (anioInput < 1888 || anioInput > anioActual) {
+                    JavaFXUtil.showModal(Alert.AlertType.ERROR, "Error", "Año inválido",
+                            "El año debe ser un número entre 1888 y " + anioActual + ".");
+                    return;
+                }
+
+                p.setAnio(anioInput);
+
             } catch (NumberFormatException e) {
-                JavaFXUtil.showModal(Alert.AlertType.ERROR, "Error", "Formato inválido", "El año debe ser un número entero.");
+                JavaFXUtil.showModal(Alert.AlertType.ERROR, "Error", "Formato inválido", "El año debe ser un número entero válido.");
                 return;
             }
+            // FIN CORRECCIÓN PROBLEMA #3
 
             peliculaRepository.save(p);
 
